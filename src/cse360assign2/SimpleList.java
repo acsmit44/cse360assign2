@@ -4,8 +4,10 @@
  * Assignment:	2
  * Description:	This class creates an int array of length 10 and the methods
  * 				can add an elements, remove an element, return the number of
- * 				elements, return the list as a string, or search the array
- * 				for a certain value and return its index.
+ * 				elements, return the list as a string, search the array
+ * 				for a certain value and return its index, append an element,
+ * 				return the first element, return the last element, or
+ * 				return the number of vacant elements.
  */
 
 package cse360assign2;
@@ -152,7 +154,7 @@ public class SimpleList
 	 * full, the size is increased by 1.5 times and then the element is
 	 * appended.  Increases count by 1.
 	 * 
-	 * @param newElement
+	 * @param  newElement  the element to be appended to the list
 	 */
 	public void append(int newElement)
 	{
@@ -169,7 +171,7 @@ public class SimpleList
 	 * Returns the first element of the list.  If there is nothing in the list,
 	 * return -1.
 	 * 
-	 * @return
+	 * @return  the first element of the list
 	 */
 	public int first()
 	{
@@ -181,7 +183,7 @@ public class SimpleList
 	 * Returns the last element of the list.  If there is nothing in the list,
 	 * return -1.
 	 * 
-	 * @return
+	 * @return  the last element of the list
 	 */
 	public int last()
 	{
@@ -192,7 +194,7 @@ public class SimpleList
 	/**
 	 * Returns the number of vacant spots in the list.
 	 * 
-	 * @return
+	 * @return  the number of vacant spots in the list
 	 */
 	public int size()
 	{
