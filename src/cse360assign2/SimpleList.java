@@ -33,13 +33,18 @@ public class SimpleList
 	
 	/**
 	 * Adds a new element into the array and moves all other elements
-	 * over by 1.  If the array was already full, the final element will
-	 * "fall off" the list.  Count is updated.
+	 * over by 1.  If the array was already full, list size will be
+	 * increased by 1.5 times and then the new element will be added.
 	 * 
 	 * @param  newElement  an integer to add into the array
 	 */
 	public void add(int newElement)
 	{
+		if(count == list.length)
+		{
+			int[] newList = Arrays.copyOf(list, list.length + list.length / 2);
+			list = newList;
+		}
 		if(count == 0)
 		{
 			list[0] = newElement;
@@ -79,6 +84,11 @@ public class SimpleList
 		if(count > 0)
 		{
 			count--;
+		}
+		if(count > 0 && count < (list.length * 3) / 4)
+		{
+			int[] newList = Arrays.copyOf(list, (list.length * 3) / 4);
+			list = newList;
 		}
 	}
 	
@@ -136,5 +146,56 @@ public class SimpleList
 		
 		return -1;
 	}
-		
+	
+	/**
+	 * Appends a new element to the end of the list.  If the list is already
+	 * full, the size is increased by 1.5 times and then the element is
+	 * appended.  Increases count by 1.
+	 * 
+	 * @param newElement
+	 */
+	public void append(int newElement)
+	{
+		if(count == list.length)
+		{
+			int[] newList = Arrays.copyOf(list, list.length + list.length / 2);
+			list = newList;
+		}
+		list[count] = newElement;
+		count++;
+	}
+	
+	/**
+	 * Returns the first element of the list.  If there is nothing in the list,
+	 * return -1.
+	 * 
+	 * @return
+	 */
+	public int first()
+	{
+		if(count == 0) return -1;
+		else return list[0];
+	}
+	
+	/**
+	 * Returns the last element of the list.  If there is nothing in the list,
+	 * return -1.
+	 * 
+	 * @return
+	 */
+	public int last()
+	{
+		if(count == 0) return -1;
+		else return list[count - 1];
+	}
+	
+	/**
+	 * Returns the number of vacant spots in the list.
+	 * 
+	 * @return
+	 */
+	public int size()
+	{
+		return list.length - count;
+	}
 }
